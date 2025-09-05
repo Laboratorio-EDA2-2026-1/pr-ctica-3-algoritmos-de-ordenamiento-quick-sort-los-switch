@@ -68,7 +68,7 @@ void imprimir_arreglo(const char *etiqueta, int arr[], int n) {
 
 int main(void) {
     int m;
-    printf("Ingrese el numero de piezas: ");
+    printf("Ingrese el numero de pares (tuerca + tornillo): ");
     if (scanf("%d", &m) != 1 || m <= 0) {
         fprintf(stderr, "Error: m invalido.\n");
         return 1;
@@ -84,12 +84,12 @@ int main(void) {
 
     int n_tuercas = 0, n_tornillos = 0;
 
-    printf("Ingrese las piezas (tipo valor), donde 0=tuerca, 1=tornillo:\n");
-    for (int i = 0; i < m; i++) {
+    printf("Ingrese %d pares (tipo valor), donde 0=tuerca, 1=tornillo:\n", m * 2);
+    for (int i = 0; i < m * 2; i++) {
         int tipo, valor;
         printf("Pieza %d: ", i + 1);
         if (scanf("%d %d", &tipo, &valor) != 2) {
-            fprintf(stderr, "Error: entrada invalida en la linea %d.\n", i + 2);
+            fprintf(stderr, "Error: entrada invalida.\n");
             free(tuercas); free(tornillos);
             return 1;
         }
